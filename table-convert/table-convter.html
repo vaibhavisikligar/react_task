@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>table convter</title>
+  </head>
+  <body>
+    <input type="text" id="tb-num" />
+    <button onclick=" return tableConvter()">Convter Table</button>
+    <table id="table" border="1" cellspacing="2" cellpadding="3"></table>
+    <script>
+      function tableConvter() {
+        let table = document.getElementById("table");
+        let number = document.getElementById("tb-num").value;
+
+        if (number === "") {
+          alert("please enter the number");
+          return false;
+        }
+        for (let i = 1; i <= 10; i++) {
+          let mul = number * i;
+          let tableElement = `
+            <tr>
+              <td>${number}</td>
+              <td>*</td>
+              <td>${i}</td>
+              <td>=</td>
+              <td>${mul}</td>
+            </tr>
+        `;
+          table.insertAdjacentHTML("beforeend", tableElement);
+        }
+      }
+    </script>
+  </body>
+</html>
